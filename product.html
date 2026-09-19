@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Product Details - LUXE Premium Fashion">
+  <title>Product Details - LUXE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-content">
+          <span>Free shipping on orders over $100</span>
+          <div class="header-top-actions">
+            <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">🌙</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">LUXE</a>
+          <div class="search-bar">
+            <input type="search" placeholder="Search products..." aria-label="Search">
+            <button type="button">🔍</button>
+          </div>
+          <nav aria-label="Main navigation">
+            <ul class="nav-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-icons">
+            <button class="icon-btn wishlist-btn" title="Wishlist">♡<span class="badge wishlist-badge" style="display: none;">0</span></button>
+            <button class="icon-btn cart-btn" title="Cart">🛒<span class="badge cart-badge" style="display: none;">0</span></button>
+            <a href="login.html" class="icon-btn" title="Account">👤</a>
+          </div>
+          <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><h3>Shopping Cart</h3><button class="sidebar-close">✕</button></div>
+    <div class="sidebar-content"></div>
+  </aside>
+
+  <main>
+    <div class="container product-detail-page">
+      <ul class="breadcrumb" id="breadcrumb"></ul>
+
+      <div class="product-detail-grid" id="product-detail">
+        <p>Loading product...</p>
+      </div>
+
+      <section class="product-tabs-section">
+        <div class="product-tabs">
+          <button class="tab-button active" data-tab="description-tab">Description</button>
+          <button class="tab-button" data-tab="reviews-tab">Reviews</button>
+          <button class="tab-button" data-tab="shipping-tab">Shipping & Returns</button>
+        </div>
+        <div id="description-tab" class="tab-content active">
+          <h3>Product Description</h3>
+          <p id="full-description"></p>
+          <ul class="feature-list">
+            <li>Premium quality materials</li>
+            <li>Sustainable production</li>
+            <li>Carefully crafted design</li>
+            <li>30-day return policy</li>
+          </ul>
+        </div>
+        <div id="reviews-tab" class="tab-content">
+          <h3>Customer Reviews</h3>
+          <div id="reviews-container"></div>
+        </div>
+        <div id="shipping-tab" class="tab-content">
+          <h3>Shipping Information</h3>
+          <p>We offer multiple shipping options to suit your needs:</p>
+          <ul class="feature-list">
+            <li>Standard Shipping (5–7 business days) — Free</li>
+            <li>Express Shipping (2–3 business days) — $12.99</li>
+            <li>Overnight Shipping — $24.99</li>
+          </ul>
+          <h4>Returns</h4>
+          <p>30-day money-back guarantee on all unworn items with original tags.</p>
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h2>Related Products</h2>
+        <div id="related-products" class="grid grid-4"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>About LUXE</h3><ul><li><a href="about.html">Our Story</a></li><li><a href="shop.html">Shop</a></li></ul></div>
+        <div class="footer-section"><h3>Customer Care</h3><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+        <div class="footer-section"><h3>Legal</h3><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+        <div class="footer-section"><h3>Follow Us</h3><ul><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 LUXE. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script>
+    function initProductPage() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id') || '1';
+      const product = getProductById(productId);
+
+      if (!product) {
+        document.getElementById('product-detail').innerHTML = `
+          <div class="cart-empty" style="grid-column: 1/-1;">
+            <h2>Product Not Found</h2>
+            <p>The product you're looking for doesn't exist.</p>
+            <a href="shop.html" class="btn btn-primary">Back to Shop</a>
+          </div>`;
+        return;
+      }
+
+      document.title = `${product.name} - LUXE`;
+      const discount = getDiscountPercent(product);
+      const galleryImages = [
+        product.image,
+        product.image.replace('w=600', 'w=601'),
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1483985988355-763728e61491?w=600&h=600&fit=crop'
+      ];
+
+      document.getElementById('breadcrumb').innerHTML = `
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html?category=${encodeURIComponent(product.category)}">${product.category}</a></li>
+        <li>${product.name}</li>`;
+
+      document.getElementById('product-detail').innerHTML = `
+        <section class="product-gallery">
+          <div class="main-image-wrap">
+            <img id="main-image" src="${galleryImages[0]}" alt="${product.name}">
+          </div>
+          <div class="thumbnail-grid">
+            ${galleryImages.map((img, i) => `
+              <button class="thumbnail-btn ${i === 0 ? 'active' : ''}" data-src="${img}" aria-label="View image ${i + 1}">
+                <img src="${img}" alt="${product.name} view ${i + 1}">
+              </button>`).join('')}
+          </div>
+        </section>
+        <section class="product-info-panel">
+          <span class="product-category">${product.category}</span>
+          <h1>${product.name}</h1>
+          <div class="product-rating">${renderStars(product.rating)}<span class="review-count">(${product.reviews} reviews)</span></div>
+          <div class="product-price-lg">
+            <span class="price-current">$${product.price.toFixed(2)}</span>
+            ${product.originalPrice ? `<span class="price-original">$${product.originalPrice.toFixed(2)}</span>` : ''}
+            ${discount > 0 ? `<span class="product-badge sale">-${discount}%</span>` : ''}
+          </div>
+          <p class="product-desc">${product.description}</p>
+          <div class="product-meta">
+            <div><span>SKU</span><strong>SKU-${product.id.padStart(4, '0')}</strong></div>
+            <div><span>Category</span><a href="shop.html?category=${encodeURIComponent(product.category)}">${product.category}</a></div>
+            <div><span>Availability</span><strong class="${product.inStock ? 'in-stock' : 'out-stock'}">${product.inStock ? 'In Stock' : 'Out of Stock'}</strong></div>
+          </div>
+          <div class="option-group">
+            <label>Color</label>
+            <div class="color-options">
+              <button class="color-option active" style="background:#1a1a1a" title="Black"></button>
+              <button class="color-option" style="background:#F5F0E8;border:1px solid #ddd" title="Cream"></button>
+              <button class="color-option" style="background:#8B4513" title="Brown"></button>
+            </div>
+          </div>
+          <div class="option-group">
+            <label>Size</label>
+            <div class="size-options">
+              ${['XS','S','M','L','XL'].map(s => `<button class="size-option">${s}</button>`).join('')}
+            </div>
+          </div>
+          <div class="quantity-row">
+            <label>Quantity</label>
+            <div class="quantity-control">
+              <button type="button" id="qty-decrease">−</button>
+              <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+              <button type="button" id="qty-increase">+</button>
+            </div>
+          </div>
+          <div class="product-cta">
+            <button id="add-to-cart" class="btn btn-primary btn-full" ${!product.inStock ? 'disabled' : ''}>Add to Cart</button>
+            <button id="toggle-wishlist" class="btn btn-outline">♡ Wishlist</button>
+          </div>
+          <div class="shipping-benefits">
+            <p>✓ Free shipping on orders over $100</p>
+            <p>✓ 30-day money-back guarantee</p>
+            <p>✓ Authentic luxury guarantee</p>
+          </div>
+        </section>`;
+
+      document.getElementById('full-description').textContent = product.description;
+
+      document.getElementById('reviews-container').innerHTML = `
+        <div class="review-summary">
+          <span class="review-score">${product.rating}</span>
+          <div>${renderStars(product.rating)}<p>${product.reviews} verified reviews</p></div>
+        </div>`;
+
+      const related = getProductsByCategory(product.category).filter(p => p.id !== product.id).slice(0, 4);
+      renderProductGrid(related.length ? related : getAllProducts().slice(0, 4), 'related-products');
+
+      setupProductInteractions(product);
+    }
+
+    function setupProductInteractions(product) {
+      document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('main-image').src = btn.dataset.src;
+          document.querySelectorAll('.thumbnail-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      document.getElementById('qty-decrease').addEventListener('click', () => {
+        const qty = document.getElementById('quantity');
+        if (parseInt(qty.value, 10) > 1) qty.value = parseInt(qty.value, 10) - 1;
+      });
+
+      document.getElementById('qty-increase').addEventListener('click', () => {
+        const qty = document.getElementById('quantity');
+        if (parseInt(qty.value, 10) < 10) qty.value = parseInt(qty.value, 10) + 1;
+      });
+
+      document.getElementById('add-to-cart').addEventListener('click', () => {
+        const qty = parseInt(document.getElementById('quantity').value, 10);
+        addToCart(product.id, product.name, product.price, product.image, qty);
+      });
+
+      const wishlistBtn = document.getElementById('toggle-wishlist');
+      function updateWishlistUI() {
+        const active = appState.wishlist.some(item => item.id === product.id);
+        wishlistBtn.textContent = active ? '♥ Wishlisted' : '♡ Wishlist';
+        wishlistBtn.classList.toggle('active', active);
+      }
+      updateWishlistUI();
+      wishlistBtn.addEventListener('click', () => {
+        toggleWishlist(product.id, product.name, product.price, product.image);
+        updateWishlistUI();
+      });
+
+      document.querySelectorAll('.color-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.color-option').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('.size-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.size-option').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProductPage);
+    } else {
+      initProductPage();
+    }
+  </script>
+</body>
+</html>

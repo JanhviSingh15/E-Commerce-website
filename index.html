@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUXE — Premium luxury fashion eCommerce. Designer clothing, shoes, bags, watches, and accessories.">
+  <meta name="keywords" content="luxury fashion, designer clothing, premium accessories, ecommerce, LUXE">
+  <title>LUXE — Premium Fashion eCommerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader" aria-hidden="true">
+    <div class="loader"></div>
+    <p>Loading LUXE...</p>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <p>✨ Summer Collection 2026 — Free shipping on orders over $100 · <a href="shop.html">Shop Now</a></p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-content">
+          <span>Free shipping on orders over $100</span>
+          <div class="header-top-actions">
+            <a href="faq.html">Help</a>
+            <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">🌙</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">LUXE</a>
+
+          <div class="search-bar">
+            <input type="search" placeholder="Search products..." aria-label="Search products">
+            <button type="button" aria-label="Search">🔍</button>
+          </div>
+
+          <nav aria-label="Main navigation">
+            <ul class="nav-menu">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-icons">
+            <button class="icon-btn wishlist-btn" title="Wishlist" aria-label="Wishlist">
+              ♡
+              <span class="badge wishlist-badge" style="display: none;">0</span>
+            </button>
+            <button class="icon-btn cart-btn" title="Shopping Cart" aria-label="Shopping cart">
+              🛒
+              <span class="badge cart-badge" style="display: none;">0</span>
+            </button>
+            <a href="login.html" class="icon-btn" title="Account" aria-label="Account">👤</a>
+          </div>
+
+          <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Sidebar -->
+  <aside class="sidebar" aria-label="Shopping cart">
+    <div class="sidebar-header">
+      <h3>Shopping Cart</h3>
+      <button class="sidebar-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="sidebar-content"></div>
+  </aside>
+
+  <main>
+    <!-- Hero Slider -->
+    <section class="hero-slider-section">
+      <div id="hero-slider" class="slider-container">
+        <div class="slide active">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&h=800&fit=crop');"></div>
+          <div class="container">
+            <div class="slide-content animate-slide-in-left">
+              <span class="slide-tag">New Season</span>
+              <h1>Elevate Your Style</h1>
+              <p>Discover curated luxury pieces designed for the modern individual. Timeless elegance meets contemporary design.</p>
+              <div class="hero-buttons">
+                <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                <a href="categories.html" class="btn btn-outline-light">Explore Categories</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&h=800&fit=crop');"></div>
+          <div class="container">
+            <div class="slide-content">
+              <span class="slide-tag">Limited Edition</span>
+              <h1>Autumn Essentials</h1>
+              <p>Layer in luxury with our premium jackets, coats, and knitwear crafted from the finest materials.</p>
+              <div class="hero-buttons">
+                <a href="shop.html?category=Jackets" class="btn btn-primary">Shop Jackets</a>
+                <a href="shop.html" class="btn btn-outline-light">View All</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600&h=800&fit=crop');"></div>
+          <div class="container">
+            <div class="slide-content">
+              <span class="slide-tag">Exclusive</span>
+              <h1>Accessories That Define You</h1>
+              <p>From designer bags to luxury watches — complete your look with our handpicked accessories.</p>
+              <div class="hero-buttons">
+                <a href="shop.html?category=Accessories" class="btn btn-primary">Shop Accessories</a>
+                <a href="wishlist.html" class="btn btn-outline-light">My Wishlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Categories</h2>
+        <p class="section-subtitle">Explore our curated fashion collections</p>
+        <div class="grid grid-4" id="featured-categories"></div>
+      </div>
+    </section>
+
+    <!-- New Collection -->
+    <section class="section bg-cream">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title text-left">New Collection</h2>
+            <p class="section-subtitle text-left mb-0">Fresh arrivals for the season</p>
+          </div>
+          <a href="shop.html" class="btn btn-outline hide-mobile">View All</a>
+        </div>
+        <div class="grid grid-4" id="new-collection"></div>
+      </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Trending Now</h2>
+        <p class="section-subtitle">Most loved pieces this week</p>
+        <div class="grid grid-4" id="trending-products"></div>
+      </div>
+    </section>
+
+    <!-- Flash Sale -->
+    <section class="flash-sale">
+      <div class="container">
+        <div class="flash-sale-header">
+          <div>
+            <h2 class="flash-sale-title">Flash Sale</h2>
+            <p style="opacity: 0.9; margin: 0;">Up to 40% off — limited time only</p>
+          </div>
+          <div class="countdown" id="countdown">
+            <div class="countdown-item"><span class="countdown-number" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="cd-minutes">00</span><span class="countdown-label">Mins</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="cd-seconds">00</span><span class="countdown-label">Secs</span></div>
+          </div>
+        </div>
+        <div class="grid grid-4" id="flash-sale-products"></div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section bg-beige">
+      <div class="container">
+        <h2 class="section-title">Best Sellers</h2>
+        <p class="section-subtitle">Customer favorites you can't miss</p>
+        <div class="grid grid-4" id="best-sellers"></div>
+      </div>
+    </section>
+
+    <!-- Popular Brands -->
+    <section class="brands-section">
+      <div class="container">
+        <h2 class="section-title">Popular Brands</h2>
+        <p class="section-subtitle">Partnered with world-renowned designers</p>
+        <div class="brands-grid">
+          <span class="brand-item">GUCCI</span>
+          <span class="brand-item">PRADA</span>
+          <span class="brand-item">BALENCIAGA</span>
+          <span class="brand-item">DIOR</span>
+          <span class="brand-item">CHANEL</span>
+          <span class="brand-item">VERSACE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Trusted by fashion enthusiasts worldwide</p>
+        <div class="grid grid-3" id="testimonials-grid">
+          <article class="testimonial-card animate-fade-in">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Sarah Mitchell">
+            </div>
+            <p class="testimonial-text">"The quality is exceptional. Every piece feels like it belongs in a high-end boutique. LUXE has become my go-to for special occasions."</p>
+            <p class="testimonial-author">Sarah Mitchell</p>
+            <p class="testimonial-role">Fashion Editor, NYC</p>
+          </article>
+          <article class="testimonial-card animate-fade-in delay-200">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="James Chen">
+            </div>
+            <p class="testimonial-text">"Impeccable craftsmanship and fast delivery. The leather boots I ordered exceeded every expectation. Truly premium experience."</p>
+            <p class="testimonial-author">James Chen</p>
+            <p class="testimonial-role">Creative Director</p>
+          </article>
+          <article class="testimonial-card animate-fade-in delay-300">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Emma Laurent">
+            </div>
+            <p class="testimonial-text">"Beautiful packaging, stunning designs, and customer service that actually cares. I recommend LUXE to all my friends."</p>
+            <p class="testimonial-author">Emma Laurent</p>
+            <p class="testimonial-role">Style Influencer</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section class="instagram-section">
+      <div class="container">
+        <h2 class="section-title">Follow @LUXE</h2>
+        <p class="section-subtitle">Style inspiration from our community</p>
+        <div class="instagram-grid">
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e61491?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+          <a href="#" class="instagram-item"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop" alt="Instagram fashion"><span class="instagram-overlay">📷</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>Join the LUXE Community</h2>
+        <p>Subscribe for exclusive access to new collections, special offers, and style inspiration</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section footer-brand">
+          <h3 class="logo">LUXE</h3>
+          <p>Premium fashion for those who appreciate timeless elegance and exceptional craftsmanship.</p>
+        </div>
+        <div class="footer-section">
+          <h3>About</h3>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Care</h3>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="cart.html">Shopping Cart</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LUXE. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/slider.js"></script>
+  <script>
+    function initHomePage() {
+      renderFeaturedCategories();
+      renderProductGrid(getNewProducts(), 'new-collection');
+      renderProductGrid(getTrendingProducts(), 'trending-products');
+      renderProductGrid(getFlashSaleProducts(), 'flash-sale-products');
+      renderProductGrid(getBestSellers(), 'best-sellers');
+      initCountdown();
+    }
+
+    function renderFeaturedCategories() {
+      const container = document.getElementById('featured-categories');
+      if (!container) return;
+
+      const categoryData = [
+        { name: 'Dresses', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=400&fit=crop' },
+        { name: 'Shoes', image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&h=400&fit=crop' },
+        { name: 'Jackets', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=400&fit=crop' },
+        { name: 'Bags', image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=400&fit=crop' }
+      ];
+
+      container.innerHTML = categoryData.map(cat => `
+        <a href="shop.html?category=${encodeURIComponent(cat.name)}" class="category-card">
+          <img src="${cat.image}" alt="${cat.name}">
+          <span class="category-name">${cat.name}</span>
+        </a>
+      `).join('');
+    }
+
+    function initCountdown() {
+      const end = new Date();
+      end.setHours(23, 59, 59, 999);
+
+      function update() {
+        const now = new Date();
+        let diff = end - now;
+        if (diff < 0) diff = 0;
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        const el = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = String(val).padStart(2, '0'); };
+        el('cd-hours', h);
+        el('cd-minutes', m);
+        el('cd-seconds', s);
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    document.getElementById('newsletter-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showNotification('Successfully subscribed to newsletter!', 'success');
+      e.target.reset();
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHomePage);
+    } else {
+      initHomePage();
+    }
+  </script>
+</body>
+</html>

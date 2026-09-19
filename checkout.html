@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Checkout - LUXE Premium Fashion">
+  <title>Checkout - LUXE</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-content">
+          <span>Free shipping on orders over $100</span>
+          <div style="display: flex; gap: 24px;">
+            <button id="dark-mode-toggle" style="background: none; border: none; color: white; cursor: pointer;">🌙</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">LUXE</a>
+          
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button type="button">🔍</button>
+          </div>
+
+          <nav>
+            <ul class="nav-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-icons">
+            <button class="icon-btn cart-btn" title="Shopping Cart">
+              🛒
+              <span class="badge cart-badge" style="display: none;">0</span>
+            </button>
+            <button class="icon-btn wishlist-btn" title="Wishlist">
+              ♡
+              <span class="badge wishlist-badge" style="display: none;">0</span>
+            </button>
+            <a href="login.html" class="icon-btn" title="Account">👤</a>
+          </div>
+
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container" style="padding: 40px 0;">
+      <ul class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+
+      <h1 style="margin: 30px 0;">Checkout</h1>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 30px;">
+        <!-- Checkout Form -->
+        <section>
+          <!-- Billing Information -->
+          <form id="checkout-form" style="background-color: var(--light-bg); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-bottom: 24px;">
+            <h2 style="margin-bottom: 20px; font-size: 1.3rem;">Billing Information</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div>
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="firstName" required>
+                <span class="error-message"></span>
+              </div>
+              <div>
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="lastName" required>
+                <span class="error-message"></span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+              <span class="error-message"></span>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required>
+              <span class="error-message"></span>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label for="street">Street Address *</label>
+              <input type="text" id="street" name="street" required>
+              <span class="error-message"></span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div>
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city" required>
+                <span class="error-message"></span>
+              </div>
+              <div>
+                <label for="state">State/Province *</label>
+                <input type="text" id="state" name="state" required>
+                <span class="error-message"></span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+              <div>
+                <label for="zip">ZIP/Postal Code *</label>
+                <input type="text" id="zip" name="zip" required>
+                <span class="error-message"></span>
+              </div>
+              <div>
+                <label for="country">Country *</label>
+                <input type="text" id="country" name="country" required>
+                <span class="error-message"></span>
+              </div>
+            </div>
+
+            <!-- Shipping Information -->
+            <h2 style="margin-bottom: 20px; margin-top: 30px; font-size: 1.3rem;">Shipping Information</h2>
+
+            <div style="margin-bottom: 16px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" id="same-as-billing" checked>
+                Same as billing address
+              </label>
+            </div>
+
+            <div id="shipping-form" style="display: none;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                <div>
+                  <label for="ship-first-name">First Name *</label>
+                  <input type="text" id="ship-first-name" name="shipFirstName">
+                  <span class="error-message"></span>
+                </div>
+                <div>
+                  <label for="ship-last-name">Last Name *</label>
+                  <input type="text" id="ship-last-name" name="shipLastName">
+                  <span class="error-message"></span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <label for="ship-street">Street Address *</label>
+                <input type="text" id="ship-street" name="shipStreet">
+                <span class="error-message"></span>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                <div>
+                  <label for="ship-city">City *</label>
+                  <input type="text" id="ship-city" name="shipCity">
+                  <span class="error-message"></span>
+                </div>
+                <div>
+                  <label for="ship-state">State/Province *</label>
+                  <input type="text" id="ship-state" name="shipState">
+                  <span class="error-message"></span>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+                <div>
+                  <label for="ship-zip">ZIP/Postal Code *</label>
+                  <input type="text" id="ship-zip" name="shipZip">
+                  <span class="error-message"></span>
+                </div>
+                <div>
+                  <label for="ship-country">Country *</label>
+                  <input type="text" id="ship-country" name="shipCountry">
+                  <span class="error-message"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Method -->
+            <h2 style="margin-bottom: 20px; margin-top: 30px; font-size: 1.3rem;">Shipping Method</h2>
+
+            <div style="margin-bottom: 24px;">
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 12px; cursor: pointer;">
+                <input type="radio" name="shippingMethod" value="standard" checked>
+                <span>Standard Shipping (5-7 business days) - Free</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 12px; cursor: pointer;">
+                <input type="radio" name="shippingMethod" value="express">
+                <span>Express Shipping (2-3 business days) - $12.99</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="shippingMethod" value="overnight">
+                <span>Overnight Shipping (Next business day) - $24.99</span>
+              </label>
+            </div>
+
+            <!-- Payment Information -->
+            <h2 style="margin-bottom: 20px; margin-top: 30px; font-size: 1.3rem;">Payment Information</h2>
+
+            <div style="margin-bottom: 16px;">
+              <label for="card-name">Cardholder Name *</label>
+              <input type="text" id="card-name" name="cardName" required>
+              <span class="error-message"></span>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label for="card-number">Card Number *</label>
+              <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+              <span class="error-message"></span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+              <div>
+                <label for="card-expiry">Expiry Date *</label>
+                <input type="text" id="card-expiry" name="cardExpiry" placeholder="MM/YY" required>
+                <span class="error-message"></span>
+              </div>
+              <div>
+                <label for="card-cvv">CVV *</label>
+                <input type="text" id="card-cvv" name="cardCVV" placeholder="123" required>
+                <span class="error-message"></span>
+              </div>
+            </div>
+
+            <!-- Promo Code -->
+            <h2 style="margin-bottom: 20px; margin-top: 30px; font-size: 1.3rem;">Promo Code</h2>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+              <input type="text" id="promo-code" placeholder="Enter promo code">
+              <button type="button" class="btn" style="white-space: nowrap;" id="apply-coupon">Apply</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px 16px; font-size: 1rem;">
+              Complete Purchase
+            </button>
+          </form>
+        </section>
+
+        <!-- Order Summary -->
+        <aside style="border: 1px solid var(--border-color); padding: 24px; border-radius: var(--radius-lg); background-color: var(--light-bg); height: fit-content; position: sticky; top: 100px;">
+          <h3 style="margin-bottom: 20px;">Order Summary</h3>
+          <div id="checkout-summary" style="margin-top: 20px;"></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About LUXE</h3>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Sustainability</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Care</h3>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 LUXE. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; background: var(--primary-color); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 20px;">↑</button>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/checkout.js"></script>
+  <script>
+    // Shipping address toggle
+    const sameAsBillingCheckbox = document.getElementById('same-as-billing');
+    const shippingForm = document.getElementById('shipping-form');
+
+    sameAsBillingCheckbox.addEventListener('change', () => {
+      shippingForm.style.display = sameAsBillingCheckbox.checked ? 'none' : 'block';
+    });
+
+    // Initialize checkout
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        window.checkoutModule && window.checkoutModule.init();
+      });
+    } else {
+      window.checkoutModule && window.checkoutModule.init();
+    }
+  </script>
+</body>
+</html>
